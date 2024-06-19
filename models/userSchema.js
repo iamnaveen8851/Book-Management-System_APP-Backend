@@ -11,4 +11,4 @@ const userSchema = mongoose.Schema({
 
 
 
-modeule.exports = userSchema
+module.exports = userSchema

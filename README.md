@@ -14,8 +14,12 @@
     - userSchema.js 
     - userModel.js
 
-### Stage 3 userRouter for the registration and login 
-
+### Stage 3 userRouter for the registration and login & Test the api using POSTMAN
+    - routes dir
+        - userRouter.js 
+           a. registration route 
+           b. login route
+    
 
 ## packages
 

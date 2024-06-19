@@ -1,14 +1,25 @@
 // import the express module
 const express  = require("express")
+// Import the userRouter to handle user-related routes
+const userRouter = require("./routes/userRouter")
+
 // import dot env to get the access of environment variables which are stored in the .env file 
 require("dotenv").config()
+
 
 
 // create a server first with the help of the express
 const app = express()
 
+// Middleware to parse incoming JSON requests
+app.use(express.json())
+
+// Use the userRouter for routes starting with "/user"
+app.use("/user", userRouter)
+
 // store the port number by importing from .env file or use the port number In case if you get any error 
 const PORT = process.env.PORT || 8080
+
 
 // import the connectDb from db.js file to connect the database with your server
 const connectDb = require("./config/db")
