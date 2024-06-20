@@ -19,7 +19,9 @@
         - userRouter.js 
            a. registration route 
            b. login route
-    
+           
+### Stage 4 auth system for the user with the help of json-web-token
+
 
 ## packages
 

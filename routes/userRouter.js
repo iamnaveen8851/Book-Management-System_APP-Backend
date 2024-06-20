@@ -25,11 +25,43 @@ userRouter.post("/signUp", async (req, res) => {
       res.status(201).json({ message: "user registered successfully" });
     });
   } catch (error) {
-     // If there's any other error, send a 500 error response
+    // If there's any other error, send a 500 error response
     res.status(500).json({ message: error.message });
   }
 });
 
+// userRouter for login
+userRouter.post("/login", async (req, res) => {
+  // Destructuring email, and password from the request body.
+  const { email, password } = req.body;
+
+  try {
+    // we'll get the existing user data first 
+    const existingUser = await userModel.findOne({ email });
+    // check if the user is already exist in the database
+    if (existingUser) {
+      // check the given password with store encrypted password
+      bcrypt.compare(password, existingUser.password, function (err, result) {
+        // result is true
+        if (result) {
+          // user is able to login
+          res.status(200).json({ message: "user logged in successfully" });
+        } else {
+          // in case of wrong password
+          res.status(401).json({ message: "Wrong password" });
+        }
+       
+      });
+    } else {
+      // if the user is not existed or email is wrong 
+      res
+        .status(403)
+        .json({ message: "User is not found,please register first" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 // Exporting the userRouter to be used in other parts of the application
 module.exports = userRouter;
