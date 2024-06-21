@@ -3,6 +3,8 @@
 const express = require("express");
 const userModel = require("../models/userModels");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+require("dotenv").config()
 
 // Creating an instance of an Express router to handle routes related to users.
 const userRouter = express.Router();
@@ -44,8 +46,10 @@ userRouter.post("/login", async (req, res) => {
       bcrypt.compare(password, existingUser.password, function (err, result) {
         // result is true
         if (result) {
-          // user is able to login
-          res.status(200).json({ message: "user logged in successfully" });
+          // token to user 
+          const token = jwt.sign({book : "library" }, process.env.SECURITY_KEY);
+          // user is able to login and send the token to each user 
+          res.status(200).json({ message: "user logged in successfully", token: token});
         } else {
           // in case of wrong password
           res.status(401).json({ message: "Wrong password" });

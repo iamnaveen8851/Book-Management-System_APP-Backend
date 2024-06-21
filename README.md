@@ -11,17 +11,20 @@
 
 ### Stage 2. userSchema and user model for the registration
 
-    - userSchema.js 
+    - userSchema.js
     - userModel.js
 
 ### Stage 3 userRouter for the registration and login & Test the api using POSTMAN
-    - routes dir
-        - userRouter.js 
-           a. registration route 
-           b. login route
-           
-### Stage 4 auth system for the user with the help of json-web-token
 
+    - routes dir
+        - userRouter.js
+           a. registration route
+           b. login route
+
+
+### Stage 4 auth system for the user with the help of json-web-token/ jwt
+
+        - we'll assign token to the each user once the user logged in and send the token as to id card 
 
 ## packages
 
