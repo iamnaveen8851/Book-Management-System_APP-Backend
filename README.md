@@ -21,10 +21,14 @@
            a. registration route
            b. login route
 
-
 ### Stage 4 auth system for the user with the help of json-web-token/ jwt
 
-        - we'll assign token to the each user once the user logged in and send the token as to id card 
+        - we'll assign token to the each user once the user logged in and send the token as to id card
+
+### Stage 5 Create Books-schema and Books-Model to create the books in the database
+
+    - bookSchema.js
+    - bookModel.js
 
 ## packages
 
