@@ -14,21 +14,30 @@
     - userSchema.js
     - userModel.js
 
-### Stage 3 userRouter for the registration and login & Test the api using POSTMAN
+### Stage 3. userRouter for the registration and login & Test the api using POSTMAN
 
     - routes dir
         - userRouter.js
            a. registration route
            b. login route
 
-### Stage 4 auth system for the user with the help of json-web-token/ jwt
+### Stage 4. auth system for the user with the help of json-web-token/ jwt
 
         - we'll assign token to the each user once the user logged in and send the token as to id card
 
-### Stage 5 Create Books-schema and Books-Model to create the books in the database
+### Stage 5. Create Books-schema and Books-Model to create the books in the database
 
-    - bookSchema.js
-    - bookModel.js
+        - bookSchema.js
+        - bookModel.js
+
+### Stage 6. Books Router to create books and read books
+
+        - bookRouter.js --> perform CRUD operations 
+            a. POST Router to create a book
+            b. GET Router to read books 
+            c. Patch/update a book
+            d. Delete a book
+             
 
 ## packages
 
