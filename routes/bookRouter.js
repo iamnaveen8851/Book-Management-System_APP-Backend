@@ -27,6 +27,31 @@ bookRouter.post("/create", async(req, res)=> {
 
 
 
+bookRouter.patch("/update", async(req, res)=> {
+    const {id}  = req.params
+    try {
+        const updateBook  = await bookModels.findByIdAndUpdate(id, req.body)
+        res.status(200).json({message: `A book updated successfully with id ${id}`, data: updateBook})
+    } catch (error) {
+        res.status(500).json({message : error.message})
+    }
+})
+
+
+bookRouter.delete("/delete", async(req, res)=> {
+    const {id}  = req.params
+    try {
+        const deleteBook  = await bookModels.findByIdAndDelete(id, req.body)
+        res.status(200).json({message: `A book deleted successfully with id ${id}`, data: deleteBook})
+    } catch (error) {
+        res.status(500).json({message : error.message})
+    }
+})
+
+
+
+
+
 module.exports = bookRouter
 
 
