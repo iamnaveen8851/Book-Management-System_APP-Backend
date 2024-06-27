@@ -1,10 +1,12 @@
 const { Router } = require("express");
 const bookModels = require("../models/bookModels");
+const auth = require("../middlewares/authMiddleware");
 
 const bookRouter = Router();
 
-// to read the books
-bookRouter.get("/", async (req, res) => {
+// to read the books 
+// we're using the auth middleware here for authentication
+bookRouter.get("/", auth ,async (req, res) => {
   try {
     const books = await bookModels.find();
     res.status(200).json({ message: "All books found", books });

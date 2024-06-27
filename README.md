@@ -38,7 +38,9 @@
             c. Patch/update a book
             d. Delete a book
              
-
+### Stage 7. create auth system for authenication and verify token 
+        - middleware dir 
+            a. authMiddleware.js 
 ## packages
 
 - express
