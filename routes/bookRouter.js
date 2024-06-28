@@ -16,7 +16,7 @@ bookRouter.get("/", auth ,async (req, res) => {
 });
 
 // to create a new book
-bookRouter.post("/create", async (req, res) => {
+bookRouter.post("/create", auth, async (req, res) => {
   try {
     const newBook = await bookModels.create(req.body);
     res.status(201).json({ message: "A new book has been created", newBook });
@@ -26,7 +26,7 @@ bookRouter.post("/create", async (req, res) => {
 });
 
 // update route to update a book
-bookRouter.patch("/update/:id", async (req, res) => {
+bookRouter.patch("/update/:id",auth ,async (req, res) => {
   const { id } = req.params;
   try {
     const updateBook = await bookModels.findByIdAndUpdate(id, req.body);

@@ -32,15 +32,25 @@
 
 ### Stage 6. Books Router to create books and read books
 
-        - bookRouter.js --> perform CRUD operations 
+        - bookRouter.js --> perform CRUD operations
             a. POST Router to create a book
-            b. GET Router to read books 
+            b. GET Router to read books
             c. Patch/update a book
             d. Delete a book
-             
-### Stage 7. create auth system for authenication and verify token 
-        - middleware dir 
-            a. authMiddleware.js 
+
+
+### Stage 7. create auth system for authenication and verify token
+
+        - middleware dir
+            a. authMiddleware.js
+
+### Stage 8. create authorization system for authorized person to perform CRUD on their own books
+
+        - understand why do we need authorization check[x]
+        - update the schema of books  check[x]
+        - update the login router and send userId and username as payload in token
+        - update in middleware and we'll log and see the payload once it gets decoded check[x]
+
 ## packages
 
 - express

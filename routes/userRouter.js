@@ -3,8 +3,8 @@
 const express = require("express");
 const userModel = require("../models/userModels");
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken');
-require("dotenv").config()
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 // Creating an instance of an Express router to handle routes related to users.
 const userRouter = express.Router();
@@ -38,7 +38,7 @@ userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // we'll get the existing user data first 
+    // we'll get the existing user data first
     const existingUser = await userModel.findOne({ email });
     // check if the user is already exist in the database
     if (existingUser) {
@@ -46,18 +46,22 @@ userRouter.post("/login", async (req, res) => {
       bcrypt.compare(password, existingUser.password, function (err, result) {
         // result is true
         if (result) {
-          // token to user 
-          const token = jwt.sign({book : "library" }, process.env.SECURITY_KEY);
-          // user is able to login and send the token to each user 
-          res.status(200).json({ message: "user logged in successfully", token: token});
+          // token to user
+          const token = jwt.sign(
+            { userId: existingUser._id, username: existingUser.username },
+            process.env.SECURITY_KEY
+          );
+          // user is able to login and send the token to each user
+          res
+            .status(200)
+            .json({ message: "user logged in successfully", token: token });
         } else {
           // in case of wrong password
           res.status(401).json({ message: "Wrong password" });
         }
-       
       });
     } else {
-      // if the user is not existed or email is wrong 
+      // if the user is not existed or email is wrong
       res
         .status(403)
         .json({ message: "User is not found,please register first" });

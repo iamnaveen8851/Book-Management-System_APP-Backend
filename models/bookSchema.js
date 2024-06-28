@@ -6,6 +6,8 @@ const bookSchema = mongoose.Schema({
   rating: { type: Number, require: true },
   price: { type: Number, require: true },
   createdAt: { type: Date, default: Date.now() },
+  userId: { type: String },
+  username: { type: String },
 });
 
 module.exports = bookSchema;
