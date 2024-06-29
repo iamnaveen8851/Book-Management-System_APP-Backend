@@ -45,11 +45,16 @@
             a. authMiddleware.js
 
 ### Stage 8. create authorization system for authorized person to perform CRUD on their own books
-
+    ### PROBLEM 
         - understand why do we need authorization check[x]
         - update the schema of books  check[x]
         - update the login router and send userId and username as payload in token
         - update in middleware and we'll log and see the payload once it gets decoded check[x]
+
+    ### SOLUTION how we can build the authorization
+        - we'll send the user details in the form of payload as token 
+        - we'll decode the token in the middleware and attach with req.body
+        - we'll create the books with userDetails
 
 ## packages
 

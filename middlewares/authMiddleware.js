@@ -9,6 +9,8 @@ const auth = async (req, res, next) => {
     if (token) {
       jwt.verify(token, process.env.SECURITY_KEY, function (err, decoded) {
         console.log(decoded); // bar
+        req.body.userId = decoded.userId;
+        req.body.username = decoded.username;
         // allow to go ahead and get the access of books in router
         next()
       });

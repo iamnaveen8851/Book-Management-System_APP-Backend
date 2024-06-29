@@ -46,7 +46,7 @@ bookRouter.patch("/update/:id",auth ,async (req, res) => {
 bookRouter.delete("/delete/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const deleteBook = await bookModels.findByIdAndDelete(id, req.body);
+    const deleteBook = await bookModels.findByIdAndDelete(id);
     res
       .status(200)
       .json({
