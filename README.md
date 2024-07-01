@@ -54,7 +54,13 @@
     ### SOLUTION how we can build the authorization
         - we'll send the user details in the form of payload as token 
         - we'll decode the token in the middleware and attach with req.body
-        - we'll create the books with userDetails
+        - we'll create the books with userDetails check[x]
+
+        - one to many relationship 
+            - user a ===> multiple books 
+            
+        - we'll add authorization part-3 to so only authorized person can access their books
+        
 
 ## packages
 
