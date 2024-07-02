@@ -1,6 +1,0 @@
-{
-    "username" : "Yukta",
-    "email" : "yukta@gmail.com",
-    "password" : "yukta111"
-}
-
