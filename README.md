@@ -62,6 +62,13 @@
         - we'll add authorization part-3 to so only authorized person can access their books
         
 
+### Stage 9. Create Role Based Access Control
+        - update the user Schema -> check[x]
+        - update book Schema  -> check[x]
+        - update Router of users and books 
+        - middlewares dir
+           a. access.js
+        
 ## packages
 
 - express

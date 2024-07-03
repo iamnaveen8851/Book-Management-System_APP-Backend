@@ -8,6 +8,7 @@ const bookSchema = mongoose.Schema({
   createdAt: { type: Date, default: Date.now() },
   userId: { type: String },
   username: { type: String },
+  role: { type: String, require: true },
 });
 
 module.exports = bookSchema;
