@@ -65,10 +65,11 @@
 ### Stage 9. Create Role Based Access Control
         - update the user Schema -> check[x]
         - update book Schema  -> check[x]
-        - update Router of users and books 
+        - update Router following:
+            a. users - > Sign-up and login 
+            b. books 
         - middlewares dir
-           a. access.js
-        
+           a. access.js --> it will take role as argument and verify the role to perform CRUD operations        
 ## packages
 
 - express

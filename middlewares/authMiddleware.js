@@ -9,8 +9,10 @@ const auth = async (req, res, next) => {
     if (token) {
       jwt.verify(token, process.env.SECURITY_KEY, function (err, decoded) {
         console.log(decoded); // bar
+        // we are attaching the decoded  payload with req.body
         req.body.userId = decoded.userId;
         req.body.username = decoded.username;
+        req.body.role = decoded.role;
         // allow to go ahead and get the access of books in router
         next()
       });

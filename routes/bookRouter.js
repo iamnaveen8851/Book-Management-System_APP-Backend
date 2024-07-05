@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const bookModels = require("../models/bookModels");
 const auth = require("../middlewares/authMiddleware");
+const accessMiddleware = require("../middlewares/accessMiddleware");
 
 const bookRouter = Router();
 
@@ -20,7 +21,7 @@ bookRouter.get("/", auth, async (req, res) => {
 });
 
 // to create a new book
-bookRouter.post("/create", auth, async (req, res) => {
+bookRouter.post("/create", auth, accessMiddleware(["creator"]), async (req, res) => {
   try {
     const username = req.body.username;
     const newBook = await bookModels.create(req.body);

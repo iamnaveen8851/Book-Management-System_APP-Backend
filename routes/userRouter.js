@@ -24,7 +24,7 @@ userRouter.post("/signUp", async (req, res) => {
       // Create a new user in the database with the hashed password
       const newUSer = userModel.create({ username, email, password: hash, role});
       // Send a success response with a message and the new user's data
-      res.status(201).json({ message: "user registered successfully" });
+      res.status(201).json({ message: "user registered successfully", newUSer });
     });
   } catch (error) {
     // If there's any other error, send a 500 error response
@@ -48,7 +48,7 @@ userRouter.post("/login", async (req, res) => {
         if (result) {
           // token to user
           const token = jwt.sign(
-            { userId: existingUser._id, username: existingUser.username },
+            { userId: existingUser._id, username: existingUser.username, role : existingUser.role },
             process.env.SECURITY_KEY
           );
           // user is able to login and send the token to each user
