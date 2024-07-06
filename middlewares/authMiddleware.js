@@ -2,8 +2,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const auth = async (req, res, next) => {
-//   we'll get the token from req.headers 
+  //   we'll get the token from req.headers
   const token = req.headers.authorization.split(" ")[1];
+
   console.log(token);
   try {
     if (token) {
@@ -14,7 +15,7 @@ const auth = async (req, res, next) => {
         req.body.username = decoded.username;
         req.body.role = decoded.role;
         // allow to go ahead and get the access of books in router
-        next()
+        next();
       });
     } else {
       res.status(401).json({ message: "Token is not found" });
@@ -22,8 +23,6 @@ const auth = async (req, res, next) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-}
+};
 
-
-module.exports = auth
-
+module.exports = auth;

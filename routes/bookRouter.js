@@ -7,11 +7,12 @@ const bookRouter = Router();
 
 // to read the books
 // we're using the auth middleware here for authentication
-bookRouter.get("/", auth, async (req, res) => {
+bookRouter.get("/", auth, accessMiddleware(["student", "view-all"]), async (req, res) => {
   try {
     const username = req.body.username;
-    const userId = req.body.userId;
-    const books = await bookModels.find({ userId });
+    // const userId = req.body.userId; 
+  //  to only your books  const books = await bookModels.find( { userId });
+    const books = await bookModels.find();
     res
       .status(200)
       .json({ message: `All books are found of ${username}`, books });
@@ -34,7 +35,7 @@ bookRouter.post("/create", auth, accessMiddleware(["creator"]), async (req, res)
 });
 
 // update route to update a book
-bookRouter.patch("/update/:id", auth, async (req, res) => {
+bookRouter.patch("/update/:id", auth, accessMiddleware(["creator"]) ,async (req, res) => {
   const { id } = req.params;
   const userId = req.body.userId;
   const username = req.body.username;
@@ -58,7 +59,7 @@ bookRouter.patch("/update/:id", auth, async (req, res) => {
 });
 
 // delete route to delete a book
-bookRouter.delete("/delete/:id", async (req, res) => {
+bookRouter.delete("/delete/:id",auth,accessMiddleware(["creator"]) ,async (req, res) => {
   const { id } = req.params;
   const userId = req.body.userId;
   const username = req.body.username;

@@ -69,7 +69,11 @@
             a. users - > Sign-up and login 
             b. books 
         - middlewares dir
-           a. access.js --> it will take role as argument and verify the role to perform CRUD operations        
+           a. access.js --> it will take role as argument and verify the role to perform CRUD operations    
+        - Test API with RBAC 
+          - creator - > Create book, update book, delete book
+        NOTE : `Add auth middleware before access middleware to perfom CRUD`
+          - can the multiple roles get access to read the books ?
 ## packages
 
 - express
