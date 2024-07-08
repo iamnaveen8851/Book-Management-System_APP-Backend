@@ -73,7 +73,10 @@
         - Test API with RBAC 
           - creator - > Create book, update book, delete book
         NOTE : `Add auth middleware before access middleware to perfom CRUD`
-          - can the multiple roles get access to read the books ?
+          - can the multiple roles get access to read the books ? "Yes" -> check the routers of book
+
+### Stage 10. How to implement Search the books by title
+         - we'll perfom in the booksRouter.get() method
 ## packages
 
 - express
