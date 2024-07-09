@@ -9,6 +9,7 @@ const bookSchema = mongoose.Schema({
   userId: { type: String },
   username: { type: String },
   role: { type: String, require: true },
+  author: { type: String, require: true },
 });
 
 module.exports = bookSchema;

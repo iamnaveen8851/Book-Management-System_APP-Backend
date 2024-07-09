@@ -17,8 +17,8 @@ bookRouter.get(
       // const userId = req.body.userId;
       //  to only your books  const books = await bookModels.find( { userId });
 
-      // take query from the req.query 
-      const { search } = req.query;
+      // take query for search or author from the req.query
+      const { search, author } = req.query;
 
       // create a empty query object to store the results
       let query = {};
@@ -26,6 +26,11 @@ bookRouter.get(
       // check if the search query is true add it with help of regex operator
       if (search) {
         query.title = { $regex: search, $options: "i" };
+      }
+
+      // check if the author is truthy add it with help of regex operator
+      if (author) {
+        query.author = { $regex: author, $options: "i" };
       }
 
       const books = await bookModels.find(query);
