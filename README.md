@@ -82,7 +82,8 @@
         - update book Schema 
         - update the router bookRouter.get() method
 
-
+### Stage 12. How to Sort the books price in asc/desc
+        - update the router bookRouter.get() method
 ## packages
 
 - express

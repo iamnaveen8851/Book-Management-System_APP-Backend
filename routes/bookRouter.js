@@ -18,7 +18,7 @@ bookRouter.get(
       //  to only your books  const books = await bookModels.find( { userId });
 
       // take query for search or author from the req.query
-      const { search, author} = req.query;
+      const { search, author, sort} = req.query;
 
       // create a empty query object to store the results
       let query = {};
@@ -34,9 +34,15 @@ bookRouter.get(
       }
 
        // determine the sort order based on the sort parameter
+       let sortOrder = {} 
+       if(sort == 'asc'){
+        sortOrder.price = 1
+       }else if (sort == 'desc'){
+        sortOrder.price = -1
+       }
        
 
-      const books = await bookModels.find(query)
+      const books = await bookModels.find(query).sort(sortOrder)
       res
         .status(200)
         .json({ message: `All books are found of ${username}`, books });
