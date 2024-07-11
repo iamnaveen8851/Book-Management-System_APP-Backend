@@ -18,7 +18,7 @@ bookRouter.get(
       //  to only your books  const books = await bookModels.find( { userId });
 
       // take query for search or author from the req.query
-      const { search, author } = req.query;
+      const { search, author} = req.query;
 
       // create a empty query object to store the results
       let query = {};
@@ -33,7 +33,10 @@ bookRouter.get(
         query.author = { $regex: author, $options: "i" };
       }
 
-      const books = await bookModels.find(query);
+       // determine the sort order based on the sort parameter
+       
+
+      const books = await bookModels.find(query)
       res
         .status(200)
         .json({ message: `All books are found of ${username}`, books });
