@@ -84,6 +84,8 @@
 
 ### Stage 12. How to Sort the books price in asc/desc
         - update the router bookRouter.get() method
+
+### Stage 13. Add images of the relevant books 
 ## packages
 
 - express
